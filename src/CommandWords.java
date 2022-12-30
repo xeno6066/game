@@ -4,8 +4,7 @@ public class CommandWords
     private HashMap<String, CommandWord> validCommands = new HashMap<>();
 
 
-    public CommandWords()
-    {
+    public CommandWords() {
         validCommands.put("ga", CommandWord.Ga);
         validCommands.put("take", CommandWord.TAKE);
         validCommands.put("drop", CommandWord.DROP);
@@ -13,7 +12,6 @@ public class CommandWords
         validCommands.put("eat", CommandWord.EAT);
         validCommands.put("exit", CommandWord.QUIT);
         validCommands.put("help", CommandWord.HELP);
-        validCommands.put("lookitem", CommandWord.LOOKITEM);
     }
 
 

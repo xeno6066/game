@@ -6,6 +6,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     private ArrayList<Item> items = new ArrayList<>();
+    RoomType type ;
 
     public Room(String description) 
     {

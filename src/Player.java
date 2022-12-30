@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Player {
     public static final int ITEM_GONE = 0;
@@ -10,9 +12,11 @@ public class Player {
     private String name;
     private Room currentRoom;
     private ArrayList<Item> bag = new ArrayList<>();
+    private Item key ;
 
-    public Player(String name) {
+    public Player(String name , Item key) {
         this.name = name;
+        this.key = key ;
     }
 
     public int take(String name) {
@@ -34,8 +38,12 @@ public class Player {
     }
 
     public void setCurrentRoom(Room currentRoom) {
+        int key1 = Collections.frequency(bag , key);
         this.currentRoom = currentRoom;
+
+        if(this.currentRoom.type.equals(RoomType.KEYDOOR)&&currentRoom.equals(key1));
     }
+
 
     public String getBagDescription() {
         if (bag.isEmpty()) {

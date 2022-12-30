@@ -1,3 +1,3 @@
 public enum CommandWord {
-    Ga, TAKE, DROP, LOOK, EAT, QUIT, HELP, UNKNOWN, LOOKITEM
+    Ga, TAKE, DROP, LOOK, EAT, QUIT, HELP, UNKNOWN,
 }

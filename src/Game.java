@@ -3,10 +3,11 @@ public class Game
     private Parser parser;
     private Player player;
     private Item item;
+    private Item key = new Item("key","key",0.2 ,true );
 
     public Game() 
     {
-        player = new Player("Jos");
+        player = new Player("Jos", key );
         createRooms();
         parser = new Parser();
     }
@@ -110,7 +111,7 @@ public class Game
                 drop(command);
                 break;
             case LOOK:
-                look(command);
+                look();
                 break;
             case EAT:
                 eat();
@@ -118,8 +119,6 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
-            case LOOKITEM:
-                lookItem(command);
             default:
         }
 
@@ -168,7 +167,7 @@ public class Game
         System.out.println("   " + parser.showCommands());
     }
 
-    private void look(Command command) {
+    private void look() {
             System.out.println(player.getName() + " is " + player.getCurrentRoom().getLongDescription());
 
     }
