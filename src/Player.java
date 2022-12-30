@@ -4,6 +4,9 @@ public class Player {
     public static final int ITEM_GONE = 0;
     public static final int ITEM_NOTPRESENT = 1;
     public static final int ITEM_NOTMOVEABLE = 2;
+    public static final int ITEM_DROPPED = 3;
+
+    public static final int ITEM_DESCRIPTION= 4;
     private String name;
     private Room currentRoom;
     private ArrayList<Item> bag = new ArrayList<>();
@@ -43,5 +46,27 @@ public class Player {
             returnString += "  " + i.getLongDescription() + System.lineSeparator();
         }
         return returnString;
+    }
+    public int drop(String name) {
+        for (Item item : bag) {
+            if (item.getName().equals(name)){
+                currentRoom.addItem(item);
+                bag.remove(item);
+                return ITEM_DROPPED;
+            }
+
+        }
+
+        return ITEM_NOTPRESENT;
+    }
+    public int lookitem(String name){
+
+        for (Item item : bag){
+            if (item.getName().equals(name)){
+                item.getDescription();
+                return ITEM_DESCRIPTION;
+            }
+        }
+        return ITEM_NOTPRESENT;
     }
 }

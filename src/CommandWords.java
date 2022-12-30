@@ -13,6 +13,7 @@ public class CommandWords
         validCommands.put("eat", CommandWord.EAT);
         validCommands.put("exit", CommandWord.QUIT);
         validCommands.put("help", CommandWord.HELP);
+        validCommands.put("lookitem", CommandWord.LOOKITEM);
     }
 
 

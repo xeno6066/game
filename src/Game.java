@@ -2,6 +2,7 @@ public class Game
 {
     private Parser parser;
     private Player player;
+    private Item item;
 
     public Game() 
     {
@@ -46,7 +47,7 @@ public class Game
         living.addItem(new Item("mes","oei das scherp ", 5 , true));
         tuinhuis.addItem(new Item("schep","een roestige schep" , 9 , true));
         geheimeKamer.addItem(new Item("hamer", "een oude hamer" , 9.6 , true));
-        kamer.addItem(new Item("tutorial note" , " welkom tot mijn spel , ik heb een puzzel spel gemaakt dat als je het goed wild ervaren \n " +
+        kamer.addItem(new Item("tutorial-note" , " welkom tot mijn spel , ik heb een puzzel spel gemaakt dat als je het goed wild ervaren \n " +
                 "dat je het best met 2 schermen speelt of gebijk alt + tab \n" +
                 "ik hoop dat je tot het einde van het spel geraakt en er van geniet \n" +
                 "mvg de makelaar " , 0.2, false));
@@ -106,9 +107,10 @@ public class Game
                 take(command);
                 break;
             case DROP:
+                drop(command);
                 break;
             case LOOK:
-                look();
+                look(command);
                 break;
             case EAT:
                 eat();
@@ -116,6 +118,8 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            case LOOKITEM:
+                lookItem(command);
             default:
         }
 
@@ -140,6 +144,20 @@ public class Game
 
         }
     }
+    private void drop(Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("Drop what?");
+            return;
+        }
+
+        int result = player.drop(command.getSecondWord());
+        if (result == Player.ITEM_DROPPED)
+            printLocationInfo();
+        else if (result == Player.ITEM_NOTPRESENT){
+            System.out.println("Item " + command.getSecondWord() + " is not in bag");
+        }
+
+    }
     // implementations of user commands:
     private void printHelp() 
     {
@@ -150,8 +168,19 @@ public class Game
         System.out.println("   " + parser.showCommands());
     }
 
-    private void look() {
-        System.out.println(player.getName() + " is " + player.getCurrentRoom().getLongDescription());
+    private void look(Command command) {
+            System.out.println(player.getName() + " is " + player.getCurrentRoom().getLongDescription());
+
+    }
+    private void lookItem(Command command){
+        if (!command.hasSecondWord()){
+            System.out.println("what do you wanna look at");
+            return;
+        }
+        int result = player.lookitem(command.getSecondWord());
+        if (result == Player.ITEM_DESCRIPTION)
+            System.out.println(result);
+
     }
 
     private void eat() {
