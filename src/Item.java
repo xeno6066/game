@@ -4,10 +4,11 @@ public class Item {
     private double weight;
     private boolean moveable = true;
 
-    public Item(String name, String description, double weight) {
+    public Item(String name, String description, double weight , boolean moveable) {
         this.name = name;
         this.description = description;
         this.weight = weight;
+        this.moveable = moveable;
     }
 
     public String getName() {

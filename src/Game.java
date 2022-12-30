@@ -13,7 +13,7 @@ public class Game
     private void createRooms()
     {
         Room kamer, gang, living, kelder, tuin, tuinhuis,zolder,park,geheimeKamer , fabriek;
-        Item hamer , mes , sleutel , schep ;
+        Item hamer , mes , sleutel , schep , note;
 
       
         // create the rooms
@@ -41,11 +41,17 @@ public class Game
         geheimeKamer.setExit("v1" , kelder);
 
         //items
-        tuinhuis.addItem(new Item("water", "a crate bottles of water", 12.2));
-        kamer.addItem(new Item("sleutel", "een sleutel dat naar een kamer leid", 0.5));
-        living.addItem(new Item("mes","oei das scherp ", 5));
-        tuinhuis.addItem(new Item("schep","een roestige schep" , 9));
-        geheimeKamer.addItem(new Item("hamer", "een oude hamer" , 9.6));
+        tuinhuis.addItem(new Item("water", "a crate bottles of water", 12.2 , true));
+        kamer.addItem(new Item("sleutel", "een sleutel dat naar een kamer leid", 0.5 , true));
+        living.addItem(new Item("mes","oei das scherp ", 5 , true));
+        tuinhuis.addItem(new Item("schep","een roestige schep" , 9 , true));
+        geheimeKamer.addItem(new Item("hamer", "een oude hamer" , 9.6 , true));
+        kamer.addItem(new Item("tutorial note" , " welkom tot mijn spel , ik heb een puzzel spel gemaakt dat als je het goed wild ervaren \n " +
+                "dat je het best met 2 schermen speelt of gebijk alt + tab \n" +
+                "ik hoop dat je tot het einde van het spel geraakt en er van geniet \n" +
+                "mvg de makelaar " , 0.2, false));
+
+
 
         player.setCurrentRoom(kamer);  // start game outside
     }
