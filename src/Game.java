@@ -48,10 +48,6 @@ public class Game
         living.addItem(new Item("mes","oei das scherp ", 5 , true));
         tuinhuis.addItem(new Item("schep","een roestige schep" , 9 , true));
         geheimeKamer.addItem(new Item("hamer", "een oude hamer" , 9.6 , true));
-        kamer.addItem(new Item("tutorial-note" , " welkom tot mijn spel , ik heb een puzzel spel gemaakt dat als je het goed wild ervaren \n " +
-                "dat je het best met 2 schermen speelt of gebijk alt + tab \n" +
-                "ik hoop dat je tot het einde van het spel geraakt en er van geniet \n" +
-                "mvg de makelaar " , 0.2, false));
 
 
 
@@ -74,10 +70,11 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome tot mijn spel ");
-        System.out.println("ik hoop dat je het leuk vind \n gemaakt door xeno weij ");
-        System.out.println("Type 'help' if you need help.");
-        System.out.println();
+        System.out.println("\" welkom tot mijn spel , ik heb een puzzel spel gemaakt dat als je het goed wild ervaren \n"+
+                                "dat je het best met 2 schermen speelt of gebijk maakt van alt + tab \n" +
+                                "ik hoop dat je tot het einde van het spel geraakt en er van geniet \n" +
+                                "mvg de makelaar  ");
+
         printLocationInfo();
     }
 

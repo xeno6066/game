@@ -37,7 +37,7 @@ public class Room
         return foundItem;
     }
 
-    public void setExit(String direction, Room room) {
+    public void setExit(String direction, Room room ) {
         if (room!=null) exits.put(direction, room);
     }
     public Room getExit(String direction) {

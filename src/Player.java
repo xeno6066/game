@@ -1,3 +1,4 @@
+import java.lang.management.BufferPoolMXBean;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -11,12 +12,22 @@ public class Player {
     public static final int ITEM_DESCRIPTION= 4;
     private String name;
     private Room currentRoom;
+    private Room previusRoom ;
+    private boolean canGoNextRoom = false ;
     private ArrayList<Item> bag = new ArrayList<>();
     private Item key ;
 
     public Player(String name , Item key) {
         this.name = name;
         this.key = key ;
+    }
+
+    public boolean isCanGoNextRoom() {
+        return canGoNextRoom;
+    }
+
+    public void setCanGoNextRoom(boolean canGoNextRoom) {
+        this.canGoNextRoom = canGoNextRoom;
     }
 
     public int take(String name) {
@@ -39,9 +50,12 @@ public class Player {
 
     public void setCurrentRoom(Room currentRoom) {
         int key1 = Collections.frequency(bag , key);
+        this.previusRoom = this.currentRoom;
         this.currentRoom = currentRoom;
 
-        if(this.currentRoom.type.equals(RoomType.KEYDOOR)&&currentRoom.equals(key1));
+//        if(this.currentRoom.type.equals(RoomType.KEYDOOR)&&currentRoom.equals(key1)){
+ //           this.canGoNextRoom=true;
+   //     }
     }
 
 
@@ -77,4 +91,5 @@ public class Player {
         }
         return ITEM_NOTPRESENT;
     }
+
 }
